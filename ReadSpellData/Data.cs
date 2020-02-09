@@ -55,6 +55,11 @@ namespace ReadSpellData
         public static string fileName = "";
         public static void ParseData()
         {
+            // Remove any old data.
+            spellCooldowns.Clear();
+            castsList.Clear();
+            castTimesList.Clear();
+
             foreach (DataRow rowData in Frm_ReadInfo.objectDataTable.Rows)
             {
                 bool found = false;

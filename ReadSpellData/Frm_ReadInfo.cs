@@ -22,6 +22,7 @@ namespace ReadSpellData
         public Frm_ReadInfo()
         {
             InitializeComponent();
+            Reading.SetupDataTable();
         }
 
         private void loadB_Click(object sender, EventArgs e)
@@ -36,6 +37,8 @@ namespace ReadSpellData
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                toolStripStatusLabel.Text = "Loading...";
+                statusStrip.Update();
                 Data.fileName = System.IO.Path.GetFileName(openFileDialog.FileName);
                 LoadSniffFileIntoDatatable(openFileDialog.FileName);
                 toolStripStatusLabel.Text = Data.fileName;
@@ -56,12 +59,9 @@ namespace ReadSpellData
             if (line == "# TrinityCore - WowPacketParser")
             {
                 Utility.WriteLog("- Exporting creature data from parsed sniff..");
-                toolStripStatusLabel.Text = "Loading File...";
-                Reading.SetupDataTable();
                 Reading.GetCreatureSpells(fileName.ToString());
                 Data.ParseData();
                 FillListBoxs();
-                toolStripStatusLabel.Text = "File loaded";
             }
             else
             {

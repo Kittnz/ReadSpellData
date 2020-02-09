@@ -29,6 +29,7 @@ namespace ReadSpellData
 
         public static void GetCreatureSpells(string fileName)
         {
+            Frm_ReadInfo.objectDataTable.Rows.Clear();
             var lines = File.ReadAllLines(fileName);
             ObjectStructure.SMSG_SPELL_GO sniff;
 
