@@ -63,7 +63,7 @@ namespace ReadSpellData
 
             saveBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             saveBox.ClientSize = size;
-            saveBox.Text = "Save Script";
+            saveBox.Text = "Save Data";
             saveBox.MaximizeBox = false;
             saveBox.MinimizeBox = false;
             saveBox.StartPosition = FormStartPosition.CenterParent;
